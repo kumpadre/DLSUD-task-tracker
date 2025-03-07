@@ -8,6 +8,26 @@ body {
 	background-color: #f9f9f9;
 }
 
+img {
+	width: 30px;
+	height: 30px;
+	padding-right: 10px;
+}
+
+input {
+	display: inline-block;
+}
+
+input:focus {
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
 /* Sidebars */
 .sidebars {
 	background-color: #f5f5f5;
@@ -17,44 +37,47 @@ body {
 	gap: 20px;
 }
 
+.logo, .menu, .calendar {
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+
 /* Left Sidebar */
 nav {
 	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-	font-size: 24px;
-	font-weight: bold;
+.logo img {
+	padding-top: 10px;
+	width: 200px;
+	height: 60px;
 }
 
 .menu {
-	list-style: none;
-	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
-.menu li {
+.menu button {
+	display: flex;
 	padding: 10px;
 	cursor: pointer;
-	display: flex;
-	justify-content: space-between;
 	font-size: 18px;
-}
-
-.menu .active {
-	background: #ddd;
+	text-align: left;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
 	border-radius: 5px;
 }
 
-.count {
-	background: #bbb;
-	color: white;
-	padding: 3px 6px;
-	border-radius: 10px;
-	font-size: 14px;
+.menu button:hover {
+	background: #c9c9c9;
 }
 
-.count.red {
-	background: red;
+.menu .active {
+	background: #dddddd;
 }
 
 /* Right Sidebar */
@@ -69,7 +92,7 @@ aside {
 }
 
 .calendar h3 {
-	margin-bottom: 10px;
+	margin: 0 0 10px 0;
 }
 
 .calendar table {
@@ -85,18 +108,17 @@ aside {
 .calendar .selected {
 	background-color: blue;
 	color: white;
-	border-radius: 50%;
+	border-radius: 55%;
 }
 
-/* Main Container */
+/* Main */
 main {
 	display: flex;
-	grid-template-columns: row;
 	width: 100%;
 	height: 100vh;
 }
 
-/* To-Do Section */
+/* Container */
 .container {
 	display: flex;
 	flex-direction: column;
@@ -105,6 +127,7 @@ main {
 	padding: 20px;
 }
 
+/* Title Area */
 .title-area {
 	display: flex;
 	justify-content: space-between;
@@ -113,20 +136,35 @@ main {
 
 .title-area input {
 	flex-grow: 1;
-	margin-right: 10px; /* Adjust the margin as needed */
+	margin-right: 10px;
+	padding: 10px 10px 5px 10px;
+	border: none;
+	background: none;
+	border-bottom: 1px solid #ccc;
+	font-size: 26px;
 }
 
 .title-area .add-task,
 .title-area .more-options {
-	margin-left: 10px; /* Adjust the margin as needed */
+	margin-left: 10px; 
 }
+
 .add-task {
-	background: green;
+	background: rgb(0, 158, 0);
 	color: white;
-	border: none;
+	font-size: 16px;
 	padding: 10px 15px;
-	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 10px;
+}
+
+.add-task:hover {
+	background-color: rgb(0, 118, 0);
+}
+
+.more-options {
+	font-size: 40px;
+	font-weight: 2000;
+	color: #777777;
 }
 
 /* Filter Buttons */
@@ -136,28 +174,54 @@ main {
 	margin-top: 10px;
 }
 
+
+.filters .active {
+	background-color: #b7b7b7;
+}
+
 .filters button {
-	background: #ccc;
-	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
-	border-radius: 5px;
+	font-size: 16px;
+	background: #dedede;
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+
+.filters button:hover {
+	background-color: #949494;
+}
+
+.filters img, .filters .filter, .filters .filter:hover {
+	background: none;
+	padding: 0;
+	margin-left: 3px;
+	margin-top: 2px;
 }
 
 /* To-Do List */
-input {
-	display: inline-block;
+.checkbox {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.task {
+	width: 100%;
+	font-size: 18px;
+	padding: 5px;
+	align-self: flex-end;
+	border: none;
+	background: none;
 }
 
 .todo-list {
-	list-style: none;
+	list-style-type: none;
 	padding: 0;
 	margin-top: 15px;
 	display: grid;
 	gap: 10px;
 }
 
-.todo-list li, .todo-list div{
+.todo-list div{
 	display: flex;
 	align-items: center;
 	justify-content: left;
@@ -168,9 +232,17 @@ input {
 	max-width: 100%
 }
 
+.todo-list div button {
+	color: gray;
+	font-size: 20px;
+	width: 30px;
+	height: 30px;
+	place-self: center;
+}
+
 .todo-list .completed {
 	text-decoration: line-through;
-	color: gray;
+	color: black;
 }
 
 
