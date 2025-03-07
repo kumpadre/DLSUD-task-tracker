@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	height: 100vh;
+	background-color: #f9f9f9;
+}
+
+/* Sidebars */
+.sidebars {
+	background-color: #f5f5f5;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+/* Left Sidebar */
+nav {
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.menu {
+	list-style: none;
+	padding: 0;
+}
+
+.menu li {
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+}
+
+.menu .active {
+	background: #ddd;
+	border-radius: 5px;
+}
+
+.count {
+	background: #bbb;
+	color: white;
+	padding: 3px 6px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+
+.count.red {
+	background: red;
+}
+
+/* Right Sidebar */
+aside {
+	width: 20%;
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1)
+}
+
+/* Calendar */
+.calendar {
+	text-align: center;
+}
+
+.calendar h3 {
+	margin-bottom: 10px;
+}
+
+.calendar table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+	text-align: center;
+	padding: 5px;
+}
+
+.calendar .selected {
+	background-color: blue;
+	color: white;
+	border-radius: 50%;
+}
+
+/* Main Container */
+main {
+	display: flex;
+	grid-template-columns: row;
+	width: 100%;
+	height: 100vh;
+}
+
+/* To-Do Section */
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100vh;
+	padding: 20px;
+}
+
+.title-area {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title-area input {
+	flex-grow: 1;
+	margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.title-area .add-task,
+.title-area .more-options {
+	margin-left: 10px; /* Adjust the margin as needed */
+}
+.add-task {
+	background: green;
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/* Filter Buttons */
+.filters {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.filters button {
+	background: #ccc;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/* To-Do List */
+input {
+	display: inline-block;
+}
+
+.todo-list {
+	list-style: none;
+	padding: 0;
+	margin-top: 15px;
+	display: grid;
+	gap: 10px;
+}
+
+.todo-list li, .todo-list div{
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+	max-width: 100%
+}
+
+.todo-list .completed {
+	text-decoration: line-through;
+	color: gray;
+}
+
+
