@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taskly-To Do List</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<!-- Left Sidebar -->
@@ -91,10 +91,10 @@
 
 	<!-- To-Do Section -->
 	<main>
-		<li class="container">
+		<li class="main-container">
 			<div class="title-area">
 				<input placeholder="Title">
-				<button class="add-task">Add Task</button>
+				<button class="add-task" id="addTaskBtn">Add Task</button>
 				<button class="more-options">⋮</button>
 			</div>
 			<div class="filters">
@@ -106,29 +106,14 @@
 				<button>Medium</button>
 				<button>Low</button>
 			</div>
-			<ul class="todo-list">
-				<li>
+			<ul class="to-do-list-container" id="toDoListContainer">
+				<li data-index="0">
 					<div>
 						<input class="checkbox" type="checkbox">
 						<input class="task" placeholder="Enter task">
-						<button>✖</button>
+						<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
 					</div>
 				</li>
-				<li>
-					<div>
-						<input class="checkbox" type="checkbox">
-						<input class="task" placeholder="Enter task">
-						<button>✖</button>
-					</div>
-				</li>
-				<li>
-					<div>
-						<input class="checkbox" type="checkbox">
-						<input class="task completed" placeholder="Enter task">
-						<button>✖</button>
-					</div>
-				</li>
-			</ul>
 		</div>
 	</main>
 
@@ -136,5 +121,6 @@
 	<aside class="sidebars right-sidebar">
 	</aside>
 	
+	<script src="script.js"></script>
 </body>
 </html>
