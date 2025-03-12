@@ -91,29 +91,40 @@
 
 	<!-- To-Do Section -->
 	<main>
-		<li class="main-container">
+		<div class="main-container">
+			<!-- Title Area-->
 			<div class="title-area">
-				<input placeholder="Title">
+				<input placeholder="Title"></input>
 				<button class="add-task" id="addTaskBtn">Add Task</button>
-				<button class="more-options">⋮</button>
 			</div>
+			<!-- Filters -->
 			<div class="filters">
 				<button class="filter"><img src="images/filter.png"></button>
 				<button class="active">All</button>
-				<button>Active</button>
-				<button>Completed</button>
+				<!-- <button>Active</button> -->
+				<!-- <button>Completed</button> -->
 				<button>High</button>
 				<button>Medium</button>
 				<button>Low</button>
 			</div>
+			<!-- To-Do List Container -->
 			<ul class="to-do-list-container" id="toDoListContainer">
 				<li data-index="0">
 					<div>
 						<input class="checkbox" type="checkbox">
 						<input class="task" placeholder="Enter task">
 						<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
+						<!--
+							<button class="task-filter">⋮</button>
+							<div class="task-filter-options" data-index="0" style="display: none;">
+								<span><button class="priority-btn" data-priority="high">High</button></span>
+								<span><button class="priority-btn" data-priority="medium">Medium</button></span>
+								<span><button class="priority-btn" data-priority="low">Low</button></span>
+							</div>
+						-->
 					</div>
 				</li>
+			</ul>
 		</div>
 	</main>
 
