@@ -1,0 +1,62 @@
+/* Filter Buttons */
+.filters {
+	display: flex;
+	gap: 10px;
+	margin: 15px 0;
+}
+
+.filters button {
+	font-size: 16px;
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+
+.all-filter-view {
+	background: #9a9a9a;;
+	color: white;
+}
+
+.all-filter-view:hover {
+	background-color: #7d7d7d;
+}
+
+.all-filter-view.active {
+	background-color: #b7b7b7;
+}
+
+.filters img, .filters .filter, .filters .filter:hover {
+	background: none;
+	padding: 0;
+	margin-left: 3px;
+	margin-top: 2px;
+}
+
+
+[data-priority="high"] {
+	background-color: #FF6961;
+	color: white;
+}
+
+[data-priority="high"]:hover {
+	background-color: #df5b54;
+}
+
+
+[data-priority="medium"] {
+	background-color: #fba700; 
+	color: white;
+}
+
+[data-priority="medium"]:hover {
+	background-color: #d68f00;
+}
+
+
+[data-priority="low"] {
+	background-color: rgb(0, 180, 0);
+	color: white;
+}
+
+[data-priority="low"]:hover {
+	background-color: rgb(0, 152, 0);
+}

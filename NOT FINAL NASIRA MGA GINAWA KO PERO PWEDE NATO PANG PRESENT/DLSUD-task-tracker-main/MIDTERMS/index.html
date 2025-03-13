@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Taskly-To Do List</title>
+	<!-- CSS Links-->
+	<link rel="stylesheet" href="styles/global.css">
+		<link rel="stylesheet" href="styles/sidebars/left-sidebar.css">
+		<link rel="stylesheet" href="styles/sidebars/right-sidebar.css">
+		<!--Main To-Do List CSS--->
+		<link rel="stylesheet" href="styles/main/main.css">
+			<link rel="stylesheet" href="styles/main/to-do-list.css">
+			<link rel="stylesheet" href="styles/main/title-area.css">
+			<link rel="stylesheet" href="styles/main/filter-area.css">
+	<!-- All Styles (Might not be updated) -->
+	<!--<link rel="stylesheet" href="style (old-all-styles).css">-->
+</head>
+<body>
+
+
+	<!-- Left Sidebar -->
+	<nav class="sidebars left-sidebar">
+		<div class="logo">
+			<img src="images/logo.png" alt="logo">
+		</div>
+		<!-- Menu -->
+		<div class="collapsible-menu">
+			<button class="toggle-button">☰</button> 
+			<div class="menu-content">
+				<button><img src="images/dashboard.png" alt="img">Dashboard</button>
+				<button><img src="images/inbox.png" alt="img">Inbox</button>
+				<button><img src="images/today.png" alt="img">Today</button>
+				<button><img src="images/upcoming.png" alt="img">Upcoming</button>
+				<button class="active"><img src="images/todo.png" alt="img">To Do</button>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main To-Do Section -->
+	<main>
+		<div class="main-container">
+
+			<!-- Title Area-->
+			<div class="title-area">
+				<input placeholder="Title"></input>
+				<button class="add-task" id="addTaskBtn">Add Task</button>
+			</div>
+
+			<!-- Filters -->
+			<div class="filters">
+				<button class="filter"><img src="images/filter.png"></button>
+				<button class="all-filter-view">All</button>
+				<!-- <button>Active</button> -->
+				<!-- <button>Completed</button> -->
+				<button data-priority="high">High</button>
+				<button data-priority="medium">Medium</button>
+				<button data-priority="low">Low</button>
+			</div>
+
+			<!-- To-Do List Container -->
+			<ul class="to-do-list-container" id="toDoListContainer">
+				<li data-index="0">
+					<input class="checkbox" type="checkbox">
+					<input class="task" placeholder="Enter task">
+					<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
+					<button class="task-filter">⋮</button>
+					<div class="task-filter-options" data-index="0" style="display: none;">
+						<span><button class="priority-btn" data-priority="high">High</button></span>
+						<span><button class="priority-btn" data-priority="medium">Medium</button></span>
+						<span><button class="priority-btn" data-priority="low">Low</button></span>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</main>
+
+	<!-- Right Sidebar -->
+	<aside class="sidebars right-sidebar">
+		<!-- February Calendar -->
+		<div class="calendar">
+				<h3>February 2025</h3>
+				<table>
+						<tr>
+								<th>S</th>
+								<th>M</th>
+								<th>T</th>
+								<th>W</th>
+								<th>T</th>
+								<th>F</th>
+								<th>S</th>
+						</tr>
+						<tr>
+								<td class="disabled">26</td>
+								<td class="disabled">27</td>
+								<td class="disabled">28</td>
+								<td class="disabled">29</td>
+								<td class="disabled">30</td>
+								<td class="disabled">31</td>
+								<td>1</td>
+						</tr>
+						<tr>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+						</tr>
+						<tr>
+								<td>9</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td>14</td>
+								<td>15</td>
+						</tr>
+						<tr>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+						</tr>
+						<tr>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td class="disabled">1</td>
+						</tr>
+				</table>
+		</div>
+		<!-- March Calendar -->
+		<div class="calendar">
+				<h3>March 2025</h3>
+				<table>
+						<tr>
+								<th>S</th>
+								<th>M</th>
+								<th>T</th>
+								<th>W</th>
+								<th>T</th>
+								<th>F</th>
+								<th>S</th>
+						</tr>
+						<tr>
+								<td class="disabled">23</td>
+								<td class="disabled">24</td>
+								<td class="disabled">25</td>
+								<td class="disabled">26</td>
+								<td class="disabled">27</td>
+								<td class="disabled">28</td>
+								<td>1</td>
+						</tr>
+						<tr>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>5</td>
+								<td>6</td>
+								<td>7</td>
+								<td>8</td>
+						</tr>
+						<tr>
+								<td>9</td>
+								<td>10</td>
+								<td>11</td>
+								<td>12</td>
+								<td>13</td>
+								<td class="selected">14</td>
+								<td>15</td>
+						</tr>
+						<tr>
+								<td>16</td>
+								<td>17</td>
+								<td>18</td>
+								<td>19</td>
+								<td>20</td>
+								<td>21</td>
+								<td>22</td>
+						</tr>
+						<tr>
+								<td>23</td>
+								<td>24</td>
+								<td>25</td>
+								<td>26</td>
+								<td>27</td>
+								<td>28</td>
+								<td>29</td>
+						</tr>
+						<tr>
+								<td>30</td>
+								<td>31</td>
+								<td class="disabled">1</td>
+								<td class="disabled">2</td>
+								<td class="disabled">3</td>
+								<td class="disabled">4</td>
+								<td class="disabled">5</td>
+						</tr>
+				</table>
+		</div>
+		<!-- April Calendar -->
+		<div class="calendar">
+			<h3>April 2025</h3>
+			<table>
+					<tr>
+							<th>S</th>
+							<th>M</th>
+							<th>T</th>
+							<th>W</th>
+							<th>T</th>
+							<th>F</th>
+							<th>S</th>
+					</tr>
+					<tr>
+							<td class="disabled">30</td>
+							<td class="disabled">31</td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+					</tr>
+					<tr>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
+							<td>9</td>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+					</tr>
+					<tr>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+					</tr>
+					<tr>
+							<td>20</td>
+							<td>21</td>
+							<td>22</td>
+							<td>23</td>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+					</tr>
+					<tr>
+							<td>27</td>
+							<td>28</td>
+							<td>29</td>
+							<td>30</td>
+							<td class="disabled">1</td>
+							<td class="disabled">2</td>
+							<td class="disabled">3</td>
+					</tr>
+			</table>
+		</div>
+	</aside>
+	
+	<script src="script.js"></script>
+</body>
+</html>
