@@ -48,28 +48,3 @@ nav {
 .menu .active {
 	background: #dddddd;
 }
-
-/* Calendar */
-.calendar {
-	text-align: center;
-}
-
-.calendar h3 {
-	margin: 0 0 10px 0;
-}
-
-.calendar table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-.calendar th, .calendar td {
-	text-align: center;
-	padding: 5px;
-}
-
-.calendar .selected {
-	background-color: blue;
-	color: white;
-	border-radius: 55%;
-}
