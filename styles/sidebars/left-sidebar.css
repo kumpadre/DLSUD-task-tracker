@@ -1,0 +1,61 @@
+/* Left Sidebar */
+nav {
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+	padding-top: 10px;
+	width: 200px;
+	height: 60px;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.menu button {
+	display: flex;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 18px;
+	text-align: left;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.menu button:hover {
+	background: #c9c9c9;
+}
+
+.menu .active {
+	background: #dddddd;
+}
+
+/* Calendar */
+.calendar {
+	text-align: center;
+}
+
+.calendar h3 {
+	margin: 0 0 10px 0;
+}
+
+.calendar table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+	text-align: center;
+	padding: 5px;
+}
+
+.calendar .selected {
+	background-color: blue;
+	color: white;
+	border-radius: 55%;
+}

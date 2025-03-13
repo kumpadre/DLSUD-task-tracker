@@ -4,26 +4,20 @@ let taskCounter = 1;
 const addTask = () => {
 	const toDoListContainer = document.getElementById('toDoListContainer');
 
-	toDoListContainer.innerHTML += `
+	toDoListContainer.insertAdjacentHTML(`beforeend`, `
 			<li data-index="${taskCounter}">
-				<div>
-					<input class="checkbox" type="checkbox">
-					<input class="task" placeholder="Enter task">
-					<button class="remove-task-button" data-index="${taskCounter}">✖</button>
+				<input class="checkbox" type="checkbox">
+				<input class="task" placeholder="Enter task">
+				<button class="remove-task-button" data-index="${taskCounter}">✖</button>
+				<button class="task-filter">⋮</button>
+				<div class="task-filter-options" data-index="${taskCounter}" style="display: none;">
+					<span><button class="priority-btn" data-priority="high">High</button></span>
+					<span><button class="priority-btn" data-priority="medium">Medium</button></span>
+					<span><button class="priority-btn" data-priority="low">Low</button></span>
+				</div>
 			</li>
-    `;
+    `);
 
-	// Add event listener to the new checkbox
-	const newCheckbox = toDoListContainer.querySelector(`li[data-index="${taskCounter}"] .checkbox`);
-  newCheckbox.addEventListener('change', toggleCompleteTask);
-
-	// Add event listener to the new removeButton
-	const newRemoveBtn = toDoListContainer.querySelector(`li[data-index="${taskCounter}"] .remove-task-button`);
-	newRemoveBtn.addEventListener('click', removeTask);
-
-	// const newTaskFilterBtn = toDoListContainer.querySelector(`li[data-index="${taskCounter}"] .task-filter`);
-	// newTaskFilterBtn.addEventListener('click', toggleTaskFilterOptions);
-  
 	taskCounter++;
 }
 
@@ -62,6 +56,23 @@ const toggleCompleteTask = (event) => {
 			taskElement.classList.remove('completed');
 	}
 }
+	
+// Toggle task filter options visibility
+const toggleTaskFilterOptions = (event) => {
+	const taskFilterBtn = event.target;
+	const taskFilterOptions = taskFilterBtn.closest('li').querySelector('.task-filter-options');
+	taskFilterOptions.style.display = taskFilterOptions.style.display === 'none' ? 'block' : 'none';
+}
+
+// Hide task filter options when clicking outside
+document.addEventListener('click', (event) => {
+const taskFilterOptions = document.querySelectorAll('.task-filter-options');
+taskFilterOptions.forEach((options) => {
+		if (!options.contains(event.target) && !options.previousElementSibling.contains(event.target)) {
+				options.style.display = 'none';
+		}
+	});
+});
 
 // Event delegation for remove buttons
 document.getElementById('toDoListContainer').addEventListener('click', (event) => {
@@ -77,7 +88,6 @@ document.getElementById('toDoListContainer').addEventListener('change', (event) 
 	}
 });
 
-/*
 // Event delegation for task filter buttons
 document.getElementById('toDoListContainer').addEventListener('click', (event) => {
 	if (event.target.classList.contains('task-filter')) {
@@ -85,10 +95,3 @@ document.getElementById('toDoListContainer').addEventListener('click', (event) =
 	}
 });
 
-// Toggle task filter options visibility
-const toggleTaskFilterOptions = (event) => {
-	const taskFilterBtn = event.target;
-	const taskFilterOptions = taskFilterBtn.nextElementSibling;
-	taskFilterOptions.style.display = taskFilterOptions.style.display === 'none' ? 'block' : 'none';
-}
-*/
