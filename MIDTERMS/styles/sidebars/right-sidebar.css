@@ -3,3 +3,29 @@ aside {
 	width: 20%;
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
+
+.right-sidebar {
+	background-color: #f5f5f5;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.calendar {
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 8px;
+}
+
+.calendar table {
+	width: 100%;
+	border-collapse: collapse; /* Ensure borders collapse */
+	border-spacing: 0; /* Remove spacing between cells */
+}
+
+.calendar th {
+	text-align: center;
+	padding: 1px; /* Adjust padding as needed */
+	margin: 0; /* Remove margin */
+}
