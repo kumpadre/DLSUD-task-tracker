@@ -37,7 +37,7 @@
 }
 
 .remove-task-button {
-	color: gray;
+	color: rgb(73, 73, 73);
 	font-size: 20px;
 	place-self: center;
 }
@@ -52,7 +52,7 @@
 .task-filter {
 	font-size: 22px;
 	place-self: center;
-	color: #777777;
+	color: rgb(73, 73, 73);
 }
 
 .task-filter-options {
@@ -90,8 +90,18 @@
 	width: 100%;
 	text-align: left;
 }
-/*
-.priority-btn:hover {
-	background: #f0f0f0;
+
+li.high-prio-task {
+	background-color: #ffb8b4;
+	color: white;
 }
-*/
+
+li.medium-prio-task {
+	background-color: #ffde9c;
+	color: white;
+}
+
+li.low-prio-task {
+	background-color: rgb(155, 208, 155);
+	color: white;
+}

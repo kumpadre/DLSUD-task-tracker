@@ -12,20 +12,41 @@ aside {
 	gap: 10px;
 }
 
+/* Calendar */
 .calendar {
 	margin: 0;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 8px;
+	text-align: center;
 }
 
 .calendar table {
 	width: 100%;
-	border-collapse: collapse; /* Ensure borders collapse */
-	border-spacing: 0; /* Remove spacing between cells */
+	border-collapse: collapse;
+	border-spacing: 0; 
+}
+
+.calendar h3 {
+	margin: 0 0 10px 0;
 }
 
 .calendar th {
 	text-align: center;
-	padding: 1px; /* Adjust padding as needed */
-	margin: 0; /* Remove margin */
+	padding: 5px; 
+	margin: 0; 
+}
+
+.calendar td {
+	text-align: center;
+	padding: 5px;
+}
+
+.calendar .selected {
+	background-color: blue;
+	color: white;
+	border-radius: 55%;
+}
+
+.calendar .disabled {
+	color: gray;
 }
