@@ -4,17 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Taskly-To Do List</title>
-	<!-- CSS Links-->
-	<link rel="stylesheet" href="styles/global.css">
-		<link rel="stylesheet" href="styles/sidebars/left-sidebar.css">
-		<link rel="stylesheet" href="styles/sidebars/right-sidebar.css">
-		<!--Main To-Do List CSS--->
-		<link rel="stylesheet" href="styles/main/main.css">
-			<link rel="stylesheet" href="styles/main/to-do-list.css">
-			<link rel="stylesheet" href="styles/main/title-area.css">
-			<link rel="stylesheet" href="styles/main/filter-area.css">
-	<!-- All Styles (Might not be updated) -->
-	<!--<link rel="stylesheet" href="style (old-all-styles).css">-->
+	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<!-- Left Sidebar -->
@@ -24,11 +14,14 @@
 		</div>
 		<!-- Menu -->
 		<div class="menu">
-			<button><img src="images/dashboard.png" alt="img">Dashboard</button>
-			<button><img src="images/inbox.png" alt="img">Inbox </button>
-			<button><img src="images/today.png" alt="img">Today </button>
-			<button><img src="images/upcoming.png" alt="img">Upcoming </button>
-			<button class="active"><img src="images/todo.png" alt="img">To Do</button>
+			<button class="active"><img src="images/todo.png">To Do</button>
+			<button><img src="images/dashboard.png">Dashboard</button>
+			<button><img src="images/inbox.png">Inbox </button>
+			<button><img src="images/today.png">Calendar </button>
+			<button class="about-us-button"><img src="images/info.png" class="about-us">About Us </button>
+			<a href="signup.html" class="signup-btn">
+				<button><img src="images/logout.png">Log Out </button>
+			</a>
 		</div>
 	</nav>
 
