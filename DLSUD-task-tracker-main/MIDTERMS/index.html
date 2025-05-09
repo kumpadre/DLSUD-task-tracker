@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Taskly-To Do List</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<!-- Left Sidebar -->
+	<nav class="sidebars left-sidebar">
+		<div class="logo">
+			<img src="images/logo.png" alt="logo">
+		</div>
+		<!-- Menu -->
+		<div class="menu">
+			<button class="active"><img src="images/todo.png">To Do</button>
+			<button><img src="images/dashboard.png">Dashboard</button>
+			<button><img src="images/inbox.png">Inbox </button>
+			<button><img src="images/today.png">Calendar </button>
+			<button class="about-us-button"><img src="images/info.png" class="about-us">About Us </button>
+			<a href="signup.html" class="signup-btn">
+				<button><img src="images/logout.png">Log Out </button>
+			</a>
+		</div>
+	</nav>
+
+	<!-- Main To-Do Section -->
+	<main>
+		<div class="main-container">
+
+			<!-- Title Area-->
+			<div class="title-area">
+				<input placeholder="Title"></input>
+				<button class="add-task" id="addTaskBtn">Add Task</button>
+			</div>
+
+			<!-- Filters -->
+			<div class="filters">
+				<button class="filter"><img src="images/filter.png"></button>
+				<button class="all-filter-view">All</button>
+				<!-- <button>Active</button> -->
+				<!-- <button>Completed</button> -->
+				<button data-priority="high">High</button>
+				<button data-priority="medium">Medium</button>
+				<button data-priority="low">Low</button>
+			</div>
+
+			<!-- To-Do List Container -->
+			<ul class="to-do-list-container" id="toDoListContainer">
+				<li data-index="0">
+					<input class="checkbox" type="checkbox">
+					<input class="task" placeholder="Enter task">
+					<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
+					<button class="task-filter">⋮</button>
+					<div class="task-filter-options" data-index="0" style="display: none;">
+						<span><button class="priority-btn" data-priority="high">High</button></span>
+						<span><button class="priority-btn" data-priority="medium">Medium</button></span>
+						<span><button class="priority-btn" data-priority="low">Low</button></span>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</main>
+
+<!--########################## NEW CODE ##################################################################-->>
+<!-- Right Sidebar -->
+<aside class="sidebars right-sidebar">
+    <!-- Previous Month Calendar -->
+    <div class="calendar">
+        <h3 id="prevMonthTitle"></h3>
+        <table id="prevMonthTable">
+        </table>
+    </div>
+
+    <!-- Current Month Calendar -->
+    <div class="calendar">
+        <h3 id="currentMonthTitle"></h3>
+        <table id="currentMonthTable">
+        </table>
+    </div>
+
+    <!-- Next Month Calendar -->
+    <div class="calendar">
+        <h3 id="nextMonthTitle"></h3>
+        <table id="nextMonthTable">
+        </table>
+    </div>
+</aside>
+
+	</div>
+	<!-- Chat Toggle Button -->
+<button id="chat-toggle-btn" aria-label="Toggle chat">💬</button>
+
+<!-- Chat Widget -->
+<div id="chat-widget" role="dialog" aria-modal="true" aria-labelledby="chat-header" aria-hidden="true">
+  <div id="chat-header">
+    AI Chat
+    <button id="chat-close-btn" aria-label="Close chat" title="Close chat"
+      style="background:none; border:none; color:white; font-weight:bold; font-size:18px; cursor:pointer;">✖</button>
+  </div>
+  <div id="chat-messages" role="log" aria-live="polite"></div>
+  <form id="chat-form" autocomplete="off" style="display:flex;">
+    <input id="chat-input" type="text" placeholder="Type a message..." aria-label="Type a message" />
+    <button id="chat-send-btn" type="submit" disabled>Send</button>
+  </form>
+</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>
