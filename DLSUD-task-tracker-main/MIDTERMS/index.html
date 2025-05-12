@@ -32,6 +32,10 @@
 			<!-- Title Area-->
 			<div class="title-area">
 				<input placeholder="Title"></input>
+				<div class="deadline-container">
+					<label for="taskDeadline">Deadline:</label>
+					<input type="datetime-local" id="taskDeadline" />
+				</div>
 				<button class="add-task" id="addTaskBtn">Add Task</button>
 			</div>
 
@@ -39,8 +43,6 @@
 			<div class="filters">
 				<button class="filter"><img src="images/filter.png"></button>
 				<button class="all-filter-view">All</button>
-				<!-- <button>Active</button> -->
-				<!-- <button>Completed</button> -->
 				<button data-priority="high">High</button>
 				<button data-priority="medium">Medium</button>
 				<button data-priority="low">Low</button>
@@ -51,6 +53,7 @@
 				<li data-index="0">
 					<input class="checkbox" type="checkbox">
 					<input class="task" placeholder="Enter task">
+					<input class="deadline" type="datetime-local" placeholder="Deadline">
 					<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
 					<button class="task-filter">⋮</button>
 					<div class="task-filter-options" data-index="0" style="display: none;">

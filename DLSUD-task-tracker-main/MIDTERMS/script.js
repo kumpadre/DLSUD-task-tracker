@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let taskCounter = 1;
 
+	if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+	Notification.requestPermission();
+	}	
+
 	// Add task function
 	const addTask = () => {
 			const toDoListContainer = document.getElementById('toDoListContainer');
@@ -146,8 +150,46 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 	});
 });
+//########################################## NOTIFICATION #############################################################
 
-//########################################## NEW CODE #############################################################
+	// Request notification permission
+	if ('Notification' in window && Notification.permission !== 'granted') {
+		Notification.requestPermission();
+	}
+
+	// Reminder notification logic
+	const notifiedTasks = new Set(); // Keep track of notified tasks
+	
+	setInterval(() => {
+		const now = new Date();
+	
+		document.querySelectorAll('#toDoListContainer li').forEach(taskItem => {
+			const deadlineInput = taskItem.querySelector('.deadline');
+			const taskTextInput = taskItem.querySelector('.task');
+	
+			if (deadlineInput && taskTextInput) {
+				const deadline = new Date(deadlineInput.value);
+				const taskText = taskTextInput.value || "Untitled Task";
+				const timeDiff = deadline - now;
+	
+				if (timeDiff > 0 && timeDiff <= 10 * 60 * 1000) { // 10 minutes
+					const taskKey = `${taskItem.dataset.index}-${deadlineInput.value}`;
+	
+					if (!notifiedTasks.has(taskKey)) {
+						if (Notification.permission === "granted") {
+							new Notification("⏰ Task Reminder!", {
+								body: taskText,
+								icon: "images/todo.png" // Optional icon
+							});
+							notifiedTasks.add(taskKey);
+						}
+					}
+				}
+			}
+		});
+	}, 30000); // Check every 30 seconds
+
+//########################################## CALENDAR #############################################################
 
 // Function to get the month name from a Date object
 function getMonthName(monthIndex) {
@@ -287,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	  scrollToBottom();
 	}
   
-	// Basic AI HOTDOG NAYAN DAMING LINESSSSS OF CODE POTA
+//########################################## HELPER BOT #############################################################
 	function generateAIResponse(userInput) {
 	  userInput = userInput.trim().toLowerCase();
 	  if (userInput.includes("hello") || userInput.includes("hi")) {
