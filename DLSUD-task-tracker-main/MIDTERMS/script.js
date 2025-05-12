@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<li data-index="${taskCounter}">
 							<input class="checkbox" type="checkbox">
 							<input class="task" placeholder="Enter task">
+							<input class="deadline" type="datetime-local" placeholder="Deadline">
 							<button class="remove-task-button" data-index="${taskCounter}">✖</button>
 							<button class="task-filter">⋮</button>
 							<div class="task-filter-options" data-index="${taskCounter}" style="display: none;">
@@ -172,23 +173,24 @@ document.addEventListener('DOMContentLoaded', () => {
 				const taskText = taskTextInput.value || "Untitled Task";
 				const timeDiff = deadline - now;
 	
-				if (timeDiff > 0 && timeDiff <= 10 * 60 * 1000) { // 10 minutes
+				if (timeDiff > 0 && timeDiff <= 30 * 60 * 1000) { // 30 minutes
 					const taskKey = `${taskItem.dataset.index}-${deadlineInput.value}`;
 	
 					if (!notifiedTasks.has(taskKey)) {
-						if (Notification.permission === "granted") {
-							new Notification("⏰ Task Reminder!", {
-								body: taskText,
-								icon: "images/todo.png" // Optional icon
-							});
-							notifiedTasks.add(taskKey);
-						}
+						showCustomNotification(`⏰ Task Reminder: ${taskText}`);
+						notifiedTasks.add(taskKey);
 					}
 				}
 			}
 		});
-	}, 30000); // Check every 30 seconds
+	}, 10000); // Check every 10 seconds
 
+function showCustomNotification(message) {
+  const notifBox = document.getElementById('customNotification');
+  document.getElementById('notificationText').textContent = message;
+  notifBox.classList.remove('hidden');
+  setTimeout(() => notifBox.classList.add('hidden'), 5000); // Hide after 5 sec
+}
 //########################################## CALENDAR #############################################################
 
 // Function to get the month name from a Date object

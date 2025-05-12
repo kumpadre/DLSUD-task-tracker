@@ -616,3 +616,20 @@
         padding: 10px;
       }
     }
+
+/* Custom Notification Styles */
+.custom-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: lightgray;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 9999;
+  transition: opacity 0.3s ease-in-out;
+}
+.hidden {
+  display: none;
+}
