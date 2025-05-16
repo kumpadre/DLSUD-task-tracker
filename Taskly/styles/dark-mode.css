@@ -1,0 +1,363 @@
+/* Dark Mode Toggle */
+/* From Uiverse.io by andrew-demchenk0 */ 
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+ 
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+ 
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked + .slider {
+  background-color: #183153;
+}
+
+.input:focus + .slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+	background-color: #1e1e1e;
+	color: #f1f1f1;
+}
+
+body.dark-mode .background-overlay {
+  background-color: rgba(0, 0, 0, 0.7); 
+}
+
+body.dark-mode img {
+    filter: invert(1);
+}
+
+body.dark-mode nav.sidebars.left-sidebar,
+body.dark-mode aside.sidebars.right-sidebar {
+	background-color: #2a2a2a;
+	color: #f1f1f1;
+}
+
+body.dark-mode .menu button,
+body.dark-mode .menu .active {
+	color: #f1f1f1;
+	background-color: #333;
+}
+
+body.dark-mode .menu button:hover {
+	background-color: #444;
+}
+
+body.dark-mode .title-area input {
+	background-color: #2a2a2a;
+	color: #f1f1f1;
+	border-color: #444;
+}
+
+body.dark-mode .to-do-list-container li {
+	background-color: #2c2c2c;
+	color: #fff;
+}
+
+/* Dark Mode Styling for Task Filter Options */
+body.dark-mode .task-filter-options {
+    background-color: #2a2a2a; 
+    color: #fff;               
+    border: 1px solid #444;   
+}
+
+body.dark-mode .task-filter-options select,
+body.dark-mode .task-filter-options button,
+body.dark-mode .task-filter-options label {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode li .task {
+	color: #fff;
+}
+
+body.dark-mode .filters .all-filter-view {
+	background-color: #4d4d4d;
+}
+
+body.dark-mode .all-filter-view:hover {
+	background-color: #9c9c9c;
+}
+
+/* High priority in dark mode */
+body.dark-mode li.high-prio-task, body.dark-mode button[data-priority="high"] {
+	background-color: #800000;
+}
+
+/* Medium priority in dark mode */
+body.dark-mode li.medium-prio-task,  body.dark-mode button[data-priority="medium"] {
+	background-color: #654200;
+}
+/* Low priority in dark mode */
+body.dark-mode li.low-prio-task, body.dark-mode button[data-priority="low"] {
+	background-color: #2b5e2b;
+}
+
+body.dark-mode li .task::placeholder {
+	color: rgba(255, 255, 255, 0.616);
+}
+
+body.dark-mode .add-task {
+	background-color: #1a8917;
+}
+
+body.dark-mode .add-task:hover {
+	background-color: rgb(0, 118, 0);
+}
+
+body.dark-mode .slider {
+	background-color: #666;
+}
+
+body.dark-mode .task-filter-options button {
+	color: #fff;
+}
+
+body.dark-mode .remove-task-button,
+body.dark-mode .task-filter {
+    color: #fff
+}
+
+/* Calendar Table in Dark Mode */
+
+body.dark-mode .calendar h3 {
+	color: #f1f1f1;
+}
+
+/* Hover effect */
+body.dark-mode .calendar td:hover:not(.disabled):not(.today):not(.holiday) {
+	background-color: #444;
+	cursor: pointer;
+}
+
+body.dark-mode .calendar {
+	background-color: #222;
+	color: #e0e0e0;
+	border-color: #444;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .calendar th {
+	background-color: #2a2a2a;
+	color: #ccc;
+}
+
+body.dark-mode .calendar td {
+	color: #ccc;
+}
+
+body.dark-mode .calendar td.today {
+	background-color: #90caf9;
+	color: #000;
+}
+
+body.dark-mode .calendar td:hover:not(.disabled):not(.selected) {
+	background-color: #333;
+	color: #fff;
+}
+
+body.dark-mode .calendar td.disabled {
+	color: #777;
+}
+
+body.dark-mode .holiday {
+	background-color: #a33;
+	color: #ffcccc;
+}
+
+/* Chat Widget Adjustments */
+body.dark-mode #chat-widget {
+	background-color: #1e1e1e;
+}
+
+body.dark-mode #chat-messages {
+	background-color: #2c2c2c;
+}
+
+body.dark-mode #chat-header {
+	background-color: #333;
+}
+
+body.dark-mode #chat-input {
+	background-color: #333;
+	color: #fff;
+	border: 1px solid #555;
+}
+
+body.dark-mode #chat-send-btn {
+	background-color: #2196f3;
+}
+
+/* Notification Styles */
+body.dark-mode .custom-notification {
+	background: rgb(96, 96, 96);         
+	border: 1px solid rgb(160, 160, 160);    
+	color: #fff;                
+	box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
+}
+
+/* About-us Section */
+body.dark-mode .team-section img {
+    filter: none !important;
+}
+
+body.dark-mode .about-us-content {
+		background-color: rgba(0, 0, 0, 0.884);
+}
+
+body.dark-mode .about-us-content h1,
+body.dark-mode .about-us-content p,
+body.dark-mode .about-us-content h3 {
+	color: white;
+}
+
+body.dark-mode .about-us-content p,
+body.dark-mode .about-us-content .team-member p {
+	color: white;
+}
+
+/* Login and Signup */
+/* Container styling */
+body.dark-mode .auth-container {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Headings */
+body.dark-mode h2 {
+  color: #ffffff;
+}
+
+/* Labels */
+body.dark-mode label {
+  color: #cccccc;
+}
+
+/* Inputs */
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"] {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark-mode input::placeholder {
+  color: #888;
+}
+
+/* Buttons */
+body.dark-mode .btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #2563eb;
+}
+
+/* Links */
+body.dark-mode a {
+  color: #90cdf4;
+}
+
+body.dark-mode a:hover {
+  color: #63b3ed;
+}
