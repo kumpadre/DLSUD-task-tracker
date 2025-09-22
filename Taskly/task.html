@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark-mode');
+        }
+      } catch (e) {}
+    })();
+  </script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Taskly-To Do List</title>
+	<link rel="stylesheet" href="styles/task.css">
+	<link rel="stylesheet" href="styles/left-sidebar.css">
+	<link rel="stylesheet" href="styles/right-sidebar.css">
+	<link rel="stylesheet" href="styles/dark-mode.css">
+	<script src="https://unpkg.com/compromise"></script>
+</head>
+<body>
+	<!-- Left Sidebar -->
+	<nav class="sidebars left-sidebar">
+		<div class="logo">
+			<img src="assets/icons/logo.png" alt="logo">
+		</div>
+		<!-- Menu -->
+		<div class="menu">
+			<a href="task.html">
+				<button class="active"><img src="assets/icons/todo.png">To Do</button>
+			</a>
+			<a href="about-us.html">
+				<button class="about-us-button"><img src="assets/icons/info.png">About Us </button>
+			</a>
+			<a href="login.html" class="signup-btn">
+				<button><img src="assets/icons/logout.png">Log Out </button>
+			</a>
+		</div>
+		<!-- Dark Mode Toggle -->
+		<div>
+			<!-- From Uiverse.io by andrew-demchenk0 --> 
+			<label class="switch">
+				<span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+				<span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+				<input type="checkbox" class="input">
+				<span class="slider"></span>
+			</label>
+		</div>
+	</nav>
+
+	<!-- Main To-Do Section -->
+	<main>
+		<div class="main-container">
+
+			<!-- Title Area-->
+			<div class="title-area">
+				<input placeholder="Title"></input>
+				<div class="deadline-container">
+					<label for="taskDeadline">Deadline:</label>
+					<input type="datetime-local" id="taskDeadline" />
+				</div>
+				<button class="add-task" id="addTaskBtn">Add Task</button>
+			</div>
+
+			<!-- Filters -->
+			<div class="filters">
+				<button class="filter"><img src="assets/icons/filter.png"></button>
+				<button class="all-filter-view">All</button>
+				<button data-priority="high">High</button>
+				<button data-priority="medium">Medium</button>
+				<button data-priority="low">Low</button>
+			</div>
+
+			<!-- To-Do List Container -->
+			<ul class="to-do-list-container" id="toDoListContainer">
+				<li data-index="0">
+					<input class="checkbox" type="checkbox">
+					<input class="task" placeholder="Enter task">
+					<input class="deadline" type="datetime-local" placeholder="Deadline">
+					<button class="remove-task-button" id="removeTaskBtn" data-index="0">✖</button>
+					<button class="task-filter">⋮</button>
+					<div class="task-filter-options" data-index="0" style="display: none;">
+						<span><button class="priority-btn" data-priority="high">High</button></span>
+						<span><button class="priority-btn" data-priority="medium">Medium</button></span>
+						<span><button class="priority-btn" data-priority="low">Low</button></span>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</main>
+
+<!-- Right Sidebar -->
+<aside class="sidebars right-sidebar">
+	<div class="calendar-scroll" id="calendarScrollContainer">
+	</div>
+</aside>
+
+	</div>
+	<!-- Chat Toggle Button -->
+<button id="chat-toggle-btn" aria-label="Toggle chat">💬</button>
+
+<!-- Chat Widget -->
+<div id="chat-widget" role="dialog" aria-modal="true" aria-labelledby="chat-header" aria-hidden="true">
+  <div id="chat-header">
+    Helper Chat
+    <button id="chat-close-btn" aria-label="Close chat" title="Close chat"
+      style="background:none; border:none; color:white; font-weight:bold; font-size:18px; cursor:pointer;">✖</button>
+  </div>
+  <div id="chat-messages" role="log" aria-live="polite"></div>
+  <form id="chat-form" autocomplete="off" style="display:flex;">
+    <input id="chat-input" type="text" placeholder="Type a message..." aria-label="Type a message" />
+    <button id="chat-send-btn" type="submit" disabled>Send</button>
+  </form>
+</div>
+
+<!-- Custom Notification -->
+<div id="customNotification" class="custom-notification hidden">
+  <p id="notificationText"></p>
+</div>
+
+	<script src="scripts/task.js"></script>
+	<script src="scripts/calendar.js"></script>
+	<script src="scripts/notification.js"></script>
+	<script src="scripts/chatbot.js"></script>
+	<script src="scripts/dark-mode.js"></script>
+</body>
+</html>
